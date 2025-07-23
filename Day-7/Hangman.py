@@ -1,31 +1,32 @@
 import random
 
-#Step 1 
-
-#TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
-
 word_list = ["about", "which", "their", "there", "would", "these", "other", "could", "first", "those", "where", "after", "great", "world", "under", "never", "again", "right", "place", "think"]
 
 chosen_word = random.choice(word_list)
 
-print(chosen_word)
 
-#TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
+print(f"(Debug) Chosen word: {chosen_word}")
+# I got the chosen word
 
-guess = input("Please guess a single character\n")
-guess_lowercase = guess.lower()
-# print(guess_lowercase)
+space_list = []
+for space in range(0, len(chosen_word)):
+    space_list.append("_")
+    # space_list += "_"
 
-#TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
+# print(space_list)
 
 character_list = []
 for char in chosen_word:
     character_list.append(char)
 
-# print(character_list)
+guess_list = []
+while "_" in space_list :
+    guess = (input("Please guess a single character ")).lower()
+    
+    for element in character_list:
+        if guess == element:
+            guess_list.append(guess)
+        else :
+            guess_list.append("_")
 
-for element in character_list:
-    if guess == element:
-        print("Right")
-    else :
-        print("Wrong")
+    print(guess_list)
