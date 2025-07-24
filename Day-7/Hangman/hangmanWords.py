@@ -1,0 +1,1 @@
+word_list = ["about", "which", "their", "there", "would", "these", "other", "could", "first", "those", "where", "after", "great", "world", "under", "never", "again", "right", "place", "think"]
