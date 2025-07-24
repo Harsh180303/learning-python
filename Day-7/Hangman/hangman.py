@@ -1,15 +1,15 @@
+import os
 import random
-
 from hangmanWords import word_list
-from hangmanArt import stages
+from hangmanArt import stages, logo
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 chosen_word = random.choice(word_list)
 lives = 6
 
-from hangmanArt import logo
 print(logo)
-
-print(f"(Debug) Chosen word: {chosen_word}")
 
 display = []
 for _ in chosen_word:
@@ -21,6 +21,8 @@ end_of_game = False
 
 while not end_of_game :
     guess = (input("Please guess a single character ")).lower()
+
+    clear()
     
     for position in range(len(chosen_word)):
         letter = chosen_word[position]
