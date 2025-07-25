@@ -2,13 +2,13 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
     
 def caesar(cipher_direction, start_text, shift_amount) :
     end_text = ""
+    
+    if cipher_direction == "decode" :
+        shift_amount *= -1
+        
     for letter in start_text:
         position = alphabet.index(letter)
-        if cipher_direction == "encode".lower() :
-            new_position = position + shift_amount
-        elif cipher_direction == "decode".lower() :
-            new_position = position - shift_amount
-    
+        new_position = position + shift_amount
         end_text += alphabet[new_position]
     
     print(end_text)
