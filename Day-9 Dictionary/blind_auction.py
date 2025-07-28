@@ -3,30 +3,46 @@ import os
 def clear() :
     os.system('cls' if os.name == 'nt' else 'clear')
 
-auction_bids = []
+# Store all bids in a dictionary
+auction_bids = {}
 
+# Add a new bid
+def add_bid(name, bid_price) :
+    auction_bids[name] = bid_price
 
-def auction(name, bid_price) :
-    new_bid = {}
-    new_bid["name"] = name
-    new_bid["bid_price"] = bid_price
-    auction_bids.append(new_bid)
+# Find highest bidder
+def find_highest_bidder(bids):
+    highest_bid = 0
+    winner = ""
+    for bidder in bids:
+        bid_amount = bids[bidder]
+        if bid_amount > highest_bid:
+            highest_bid = bid_amount
+            winner = bidder
 
+    print(f"\n🏆 The winner of the auction is {winner} with a bid of ${highest_bid}.")
 
-more_bidders = 'yes'
-while more_bidders == 'yes':
-    name = input("What is your name? ")
-    bid = int(input("What is your Bid Price? $"))
-    auction(name=name, bid_price=bid)
+# Main loop
+def start_auction():
+    print("🏁 Welcome to the Blind Auction 🏁\n")
+    bidding_finished = False
+
+    while not bidding_finished:
+        name = input("What is your name? ")
+        bid = int(input("What is your bid? $"))
+
+        add_bid(name=name, bid_price=bid)
+        more_bidders = input("Are there any other bidders? Type 'yes' or 'no'").lower()
+        if more_bidders == 'no':
+            bidding_finished = True
+        elif more_bidders == 'yes':
+            clear()
+        else:
+            print("Invalid input. Ending bidding by default.")
+            bidding_finished = True
+
     clear()
-    more_bidders = input("Is there anyone else who want's to bid 'yes' or 'no'? ").lower()
+    find_highest_bidder(auction_bids)
 
-clear()
-max_bid = 0
-winner = ''
-for bid in auction_bids:
-    if bid["bid_price"] > max_bid :
-        max_bid = bid["bid_price"]
-        winner = bid['name']
-
-print(f"The winner of the auction is {winner} with ${max_bid}")
+# Run the auction
+start_auction()
