@@ -22,12 +22,19 @@ operations = {
 }
 
 num1 = float(input("Enter your first number: "))
-for symbol in operations:
-    print(symbol)
-operation_symbol = input(f"Enter the operation do you want to perform: ")
-num2 = float(input("Enter your second number: "))
+finished = False
+while not finished :
+    for symbol in operations:
+        print(symbol)
+    operation_symbol = input(f"Enter the operation do you want to perform: ")
+    num2 = float(input("Enter your second number: "))
 
-calculation_function = operations[operation_symbol]
-answer = calculation_function(num1, num2)
+    calculation_function = operations[operation_symbol]
+    first_answer = calculation_function(num1, num2)
 
-print(f"{num1} {operation_symbol} {num2} = {answer}")
+    print(f"{num1} {operation_symbol} {num2} = {first_answer}")
+    should_continue = input(f"Type 'y' to continue with {first_answer}, or type 'n' to exit.: ")
+    if should_continue == 'n' :
+        finished = True
+    if should_continue == 'y':
+        num1 = first_answer
