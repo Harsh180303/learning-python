@@ -4,6 +4,7 @@ import random
 print("Welcome to the Number Guessing Game!")
 answer = random.randint(1, 100)
 print("I'm thinking of a number between 1 and 100.")
+print(f"for testing {answer}")
 
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard':").lower()
 
@@ -18,6 +19,7 @@ def guess_the_num(turns) :
         guess = int(input("Make a guess: "))
         if guess == answer:
             print(f"You got it! The answer was {answer}.")
+            return
             should_continue = False
         elif guess > answer:
             print("Too high.")
