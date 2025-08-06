@@ -78,6 +78,7 @@ else :
 """
 
 # Problem 8
+"""
 # Leap year Exercise
 
 # year = input("Which year do you want to check? ")  # input is a string here....
@@ -93,3 +94,19 @@ if year % 4 == 0:
         print("Leap year.")
 else :
     print("Not leap year.")
+"""
+
+# Problem 9
+"""
+for number in range(1, 101):
+    # if number % 3 == 0 or number % 5 == 0:  # or is not suitable for this condition
+    if number % 3 == 0 and number % 5 == 0:
+        print("FizzBuzz")
+    elif number % 3 == 0:
+        print("Fizz")
+    elif number % 5 == 0:
+        print("Buzz")
+    else :
+        # print([number]) # this should not be enclosed with [] because it will print list
+        print(number)
+"""
