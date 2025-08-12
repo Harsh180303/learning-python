@@ -13,7 +13,7 @@ def is_resources_sufficient(type_of_drink) :
     # coffee = MENU[type_of_drink]['ingredients']['coffee']
 
     for ingredients in MENU[type_of_drink]["ingredients"]:
-        print(MENU[type_of_drink][ingredients])
+        print(MENU[type_of_drink]["ingredients"][ingredients])
 
 
 drink = input("What would you like? (Espresso/ Latte/ Cappuccino): ").lower()
